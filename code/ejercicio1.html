@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 29 Javascript - Ejercicio 1</title>
+  </head>
+  <body>
+    <h1>Ejercicios de eventos 1</h1>
+
+    <p><a href="index.html">Volver al inicio</a></p>
+
+    <p>
+      <strong>Crea </strong>una página HTML con un contenedor de una imagen.
+      Debes tener preparadas diez imágenes y en función de la tecla numérica que
+      se pulse (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) debe aparecer esa imagen en el
+      contenedor. Cuando se pulse otro número, debe vaciarse el contenedor y
+      cargarse de nuevo su imagen correspondiente.
+    </p>
+    <main>
+      <div class="imgContaier">
+        <img id="imgCambiante" src="/img/img1.jpeg" alt="" />
+      </div>
+    </main>
+
+    <script>
+      let listaImgs = [
+        "img/img1.jpeg",
+        "img/img2.jpeg",
+        "img/img3.jpeg",
+        "img/img4.jpeg",
+        "img/img5.jpeg",
+        "img/img6.jpeg",
+        "img/img7.jpeg",
+        "img/img8.jpeg",
+        "img/img9.jpeg",
+        "img/img10.jpeg",
+      ];
+
+      let imgCambiante = document.getElementById("imgCambiante");
+
+      document.body.addEventListener("keydown", (event) => {
+        let key = parseInt(event.key);
+        if (key >= 0 && key <= 9) {
+          imgCambiante.setAttribute("src", listaImgs[key]);
+        } else {
+          console.log("No has pulsado un número válido");
+        }
+      });
+    </script>
+  </body>
+</html>

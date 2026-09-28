@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 29 Javascript - Ejercicio 7</title>
+  </head>
+  <body>
+    <h1>Ejercicios de eventos 7</h1>
+
+    <p><a href="index.html">Volver al inicio</a></p>
+
+    <p>
+      <strong>Escribe</strong> un programa para simular la velocidad de
+      pulsación de dos teclas. En pantalla aparecerán dos cajas, una verde y
+      otra roja, una debajo de otra. El alto de cada caja será de 40 px y el
+      ancho inicial de 10 px cada una. La primera caja incrementará su ancho 5px
+      cada vez que se pulse la tecla [a]. La segunda caja hará lo mismo cuando
+      se pulse la tecla [ñ]. El juego termina cuando una de las cajas llega a
+      500 px de ancho. En ese momento deben desactivarse los eventos de ambas
+      teclas y mostrarse un mensaje bajo las cajas que ponga «GANA VERDE» •
+      «GANA ROJO». Se trata de calcular con qué mano eres capaz de realizar más
+      pulsaciones.
+    </p>
+    <main>
+      <div
+        id="divVerde"
+        style="
+          height: 40px;
+          width: 10px;
+          margin-bottom: 10px;
+          background-color: green;
+          display: block;
+        "
+      ></div>
+      <div
+        id="divRojo"
+        style="height: 40px; width: 10px; background-color: red; display: block"
+      ></div>
+    </main>
+
+    <script>
+      let verde = document.getElementById("divVerde");
+      let rojo = document.getElementById("divRojo");
+
+      let anchoVerde = 10;
+      let anchoRojo = 10;
+
+      let juegoTerminado = false;
+
+      document.addEventListener("keydown", (event) => {
+        if (juegoTerminado === true) {
+          return;
+        }
+        if (event.key === "a") {
+          anchoVerde = anchoVerde + 5;
+          verde.style.width = anchoVerde + "px";
+          if (anchoVerde >= 500) {
+            let pVerde = document.createElement("p");
+            pVerde.style.color = "green";
+            pVerde.textContent = "¡ La barra verde ha ganado !";
+            verde.after(pVerde);
+            juegoTerminado = true;
+          }
+        } else if (event.key === "ñ") {
+          anchoRojo = anchoRojo + 5;
+          rojo.style.width = anchoRojo + "px";
+          if (anchoRojo >= 500) {
+            let pRoja = document.createElement("p");
+            pRoja.style.color = "red";
+            pRoja.textContent = "¡ La barra roja ha ganado !";
+            rojo.after(pRoja);
+            juegoTerminado = true;
+          }
+        } else {
+          console.log("El botón pulsado no corresponde a ninguna barra.");
+        }
+      });
+    </script>
+  </body>
+</html>

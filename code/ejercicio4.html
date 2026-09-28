@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 29 Javascript - Ejercicio 4</title>
+  </head>
+  <body>
+    <h1>Ejercicios de eventos 4</h1>
+
+    <p><a href="index.html">Volver al inicio</a></p>
+
+    <p>
+      <strong>Elabora </strong>un programa que vaya rellenando un párrafo de
+      forma dinámica con todas las letras que vaya pulsando el usuario sobre
+      cualquier elemento de la página. Al final del párrafo debes incluir un
+      botón para limpiar el contenido del párrafo.
+    </p>
+    <main>
+      <h3>Párrafo dinámico</h3>
+
+      <p id="parrafoD"></p>
+    </main>
+
+    <script>
+      let dinamicP = document.getElementById("parrafoD");
+
+      let deleteButton = document.createElement("button");
+      deleteButton.textContent = "Eliminar contenido";
+      dinamicP.appendChild(deleteButton);
+
+      deleteButton.addEventListener("click", () => {
+        if (dinamicP.childNodes.length === 1) {
+          return false;
+        } else {
+          dinamicP.childNodes[0].remove();
+        }
+      });
+
+      document.body.addEventListener("keydown", (event) => {
+        if (event.key === "Backspace") {
+          if (dinamicP.childNodes.length > 1) {
+            let textoActual = dinamicP.childNodes[0].textContent;
+            dinamicP.childNodes[0].textContent = textoActual.slice(0, -1);
+          }
+        } else if (event.key.length === 1) {
+          if (dinamicP.childNodes.length === 1) {
+            let newTextNode = document.createTextNode(event.key);
+            dinamicP.prepend(newTextNode);
+          } else {
+            dinamicP.childNodes[0].textContent =
+              dinamicP.childNodes[0].textContent + event.key;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

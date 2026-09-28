@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 29 Javascript - Ejercicio 3</title>
+  </head>
+  <body>
+    <h1>Ejercicios de eventos 3</h1>
+
+    <p><a href="index.html">Volver al inicio</a></p>
+
+    <p>
+      <strong>Escribe </strong>un programa que permita ordenar los elementos de
+      una lista desordenada. Cada elemento debe tener un aspa en su extremo
+      derecho para poder ser eliminado. Además, al final habrá un botón para
+      añadir un elemento. El texto del nuevo elemento se le debe pedir al
+      usuario por teclado.
+    </p>
+    <main>
+      <ul id="items">
+        <li>Jamon</li>
+        <li>Aceitunas</li>
+        <li>Queso</li>
+        <li>Tomate</li>
+        <li>Chorizo</li>
+      </ul>
+
+      <div class="action">
+        <button id="sortButton">Ordenar</button>
+        <button id="newElement">Nuevo elemento</button>
+      </div>
+    </main>
+
+    <script>
+      let lista = document.getElementById("items"); //Accedo a la lista desordenada con ID
+      let items = lista.querySelectorAll("li"); // Selecciono todos los elementos li de es lista
+      let itemsText = []; //Creo un array para meter todos los elementos li y poder ordenarlos
+
+      for (let item of items) {
+        //Bucle por cada item para añadir el texto al nuevo array
+        itemsText.push(item.childNodes[0].textContent);
+      }
+
+      //Añadimos boton eliminar
+      for (let item of items) {
+        let newButton = document.createElement("button");
+        newButton.textContent = "X";
+        item.appendChild(newButton);
+
+        newButton.addEventListener("click", (event) => {
+          event.target.parentNode.remove();
+        });
+      }
+
+      //ORDENAR
+      let sortButton = document.getElementById("sortButton"); //Seleccionamos el boton de ordenar
+
+      sortButton.addEventListener("click", () => {
+        itemsText = [];
+        items = lista.querySelectorAll("li");
+        for (let item of items) {
+          itemsText.push(item.childNodes[0].textContent);
+        }
+        //Escuchamos el evento click
+        itemsText.sort(); //Donde ordenamos el array de itemsText creada de 0 antes.
+        lista.innerHTML = ""; // Vaciamos la lista
+        itemsText.map((item) => {
+          //Coge cada item de itemsText y...
+          let newLi = document.createElement("li"); //Crea un nuevo li (la lista anterior la borramos)...
+          newLi.textContent = item; //Le añade el texto que contiene dicho item...
+          let newButton = document.createElement("button");
+          newButton.textContent = "X"; // Añadimos el boton de eliminar ya que al darle a Ordenar, elimina todos los elementos y los vuelve a añadir.
+          newButton.addEventListener("click", (event) => {
+            event.target.parentNode.remove();
+          });
+          newLi.appendChild(newButton);
+          lista.appendChild(newLi); //Lo añade a la lista.
+        });
+      });
+
+      //Añadir elemento
+      let newElement = document.getElementById("newElement");
+      newElement.addEventListener("click", () => {
+        let texto = prompt("Introduce el nombre del elemento");
+        let newLi = document.createElement("li");
+        newLi.textContent = texto;
+        let newButton = document.createElement("button");
+        newButton.textContent = "X";
+        newButton.addEventListener("click", (event) => {
+          event.target.parentNode.remove();
+        });
+        newLi.appendChild(newButton);
+        lista.appendChild(newLi);
+      });
+
+      //FAlta por ordenar la lista con los elemento añadidos recientemente
+      lista.addEventListener("click", (event) => {
+        event.target;
+      });
+    </script>
+  </body>
+</html>

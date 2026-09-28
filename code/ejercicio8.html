@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 29 Javascript - Ejercicio 8</title>
+  </head>
+  <body>
+    <h1>Ejercicios de eventos 8</h1>
+
+    <p><a href="index.html">Volver al inicio</a></p>
+
+    <p>
+      <strong>Juguemos</strong> a adivinar las parejas. Debes distribuir en la
+      página una cuadrícula de 6 x 5 cajas. De las 30 cajas habrá 15 distintas.
+      Cada par de cajas será de un color distinto. Inicialmente todas las cajas
+      aparecerán negras. Cuando el usuario pinche sobre una caja, se revelará su
+      auténtico color. En ese momento debes arrastrar la caja al lugar donde
+      creas que se encuentra su pareja. Si aciertas, ambas cajas permanecerán
+      boca arriba y ya no se podrá interactuar con ellas. Si fallas, las dos
+      cajas volverán a su estado inicial. El programa debe detectar cuándo están
+      todas las cajas emparejadas y cuánto tiempo has tardado en resolverlo.
+    </p>
+    <main>
+      <h2 id="marcador-tiempo">Tiempo: 0 segundos</h2>
+
+      <section id="juego">
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <br />
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <br />
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <br />
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <br />
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+      </section>
+      <!--
+      <section id="fila2">
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+      </section>
+
+      <section id="fila3">
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+      </section>
+
+      <section id="fila4">
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+      </section>
+
+      <section id="fila5">
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+        <div
+          class="caja"
+          style="
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            display: inline-block;
+          "
+        ></div>
+      </section>
+-->
+    </main>
+
+    <script>
+      function obtenerColorRandom() {
+        //Creamos una función para diseñar un color...
+        let rojo = Math.floor(Math.random() * 256); //En combinación de los 3 colores primarios.
+        let verde = Math.floor(Math.random() * 256);
+        let azul = Math.floor(Math.random() * 256);
+
+        return `rgb(${rojo}, ${verde}, ${azul})`; //Y devolvemos el resultado.
+      }
+
+      let segundos = 0;
+      let cronometro;
+      let parejasEncontradas = 0;
+      let colores = []; //Creamos un array donde vamos a introducir todos los colores que saquemos.
+
+      for (let i = 0; i < 15; i++) {
+        //Con un bulce hasta 15...
+        let color = obtenerColorRandom(); //Creamos la variable color y será el resultado de invocar a la función.
+        colores.push(color, color); //Añadimos dicho color al array "colores" dos veces ya que queremos 15 parejas.
+      }
+
+      /* Mediante el siguiente algoritmo llamado fisher-Yates, con la peculiaridad de que este bucle se ejecuta
+      de forma regresiva, teniendo en cuenta que iniciamos desde la longitud del array de colores, hasta que i sea 0,
+      La clave de la segunda linea hará:
+      1º: Coge posición i y le suma uno. En este caso empezando por la última, sería 29+1;
+      2º: Math.Floor coge un número al azar entre el 0 y el 1 sin incluir el 1, ejemplo: 0,748;
+      3º: 0,748 se multiplica por el elemento i+1, en este ejemplo, 30;
+      4º: En este caso el resultado sería 22,44, aquí entra Math.random que lo redondea hacia abajo: 22;
+      5º: En este caso la variable temporal es igual al resultado: 22;
+      */
+      for (let i = colores.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        /* Aqui es donde barajamos los colores:
+        1º: la variable temporal coge en este caso el valor de la vuelta en la que esté i en el bucle.
+        Pongamos que i = 29 siendo su valor amarillo, entonces temporal ahora vale amarillo.
+        2º: La posición obtenida con el algoritmo que atiende a la variable j, en este caso es la 22 y pongamos que vale rojo;
+        Con lo que ahora el la posición 29 i (amarillo), le damos valor posición 22 j (rojo);
+        3º: Como habíamos aportado el vamor inicial de i a variable temporal para no perderla, ahora hacemos valer a 
+        la posición j lo que valía la de i, en este caso era amarillo, y de este forma hemos intercambiado posiciones.
+        */
+        let temporal = colores[i];
+        colores[i] = colores[j];
+        colores[j] = temporal;
+      }
+
+      console.log("Mi baraja de colores es:", colores);
+
+      let cajas = document.querySelectorAll(".caja"); //Seleccionamos todas los elementos con clase caja
+
+      let juegoTerminado = false; //Creamos el valor booleano para usarlo más adelante.
+      let carta1 = null; //A cada pareja de cartas le damos valor null para que existan, donde más tarde le daremos su valor.
+      let carta2 = null;
+      let tableroBloqueado = false; //Asignacion de valor booleano para
+
+      cronometro = setInterval(() => {
+        segundos++;
+        document.getElementById("marcador-tiempo").innerText =
+          `Tiempo: ${segundos} segundos`;
+      }, 1000);
+
+      cajas.forEach((caja, index) => {
+        //Mediante este bucle, pasamos por cada una de las 30 cajas del HTML
+        caja.dataset.colorOculto = colores[index]; //Aquí se guardará el color exacto como data-set en el propio elemento HTML
+        caja.addEventListener("click", (event) => {
+          //Iniciamos la escucha de cada click...
+          let cuadradoPulsado = caja; //Esta variable guarda momentaneamente el valor que tiene la caja que ha pulsado el usuario
+          /*Mediante los tres próximos if, el código valida cada parametro y si alguno de ellos no
+          concuerda, aborta el clic.
+          1º: Con el primero, bloqueará los siguientes clicks si se ha fallado en la combinación y dará margen de 1,2seg antes de voltear las cartas de nuevo.
+          */
+          if (tableroBloqueado === true) {
+            return;
+          }
+          // 2º: Si el cuadrado pultado es el mismo que la carta1, evitará el avance del juego ya que ya la tendríamos destapada.
+          if (cuadradoPulsado === carta1) {
+            return;
+          }
+          // 3º: Si el color de la caja es vacio o es negro, se considera que no se ha destapado.
+          if (cuadradoPulsado.style.backgroundColor === "true") {
+            return;
+          }
+          /*Si el clic es válido y ha spuerado los tres if anteriores...
+          Le estamos diciendo que modifique su color actual (negro), al que tiene en su dataset.
+          */
+          cuadradoPulsado.style.backgroundColor =
+            cuadradoPulsado.dataset.colorOculto;
+          //Si la carta 1 tiene valor nulo, entonces a la carte 1 le daremos el valor que tenga el cuadrado pulsado.
+          if (carta1 === null) {
+            carta1 = cuadradoPulsado;
+            //Por consiguiente, el 2º clic, cogerá el valor para asignarlo a la carta 2...
+          } else {
+            carta2 = cuadradoPulsado;
+            /*...Y entonces, si la carta1 tiene el mismo color que la carta 2, ordenamos que ambas vueltan a tomar el valor
+            null, para que queden liberadas para la siguiente pareja. Esas ya destapadas mantendrán sus valores de color,
+            ya que no les hemos indicamos que se vuelvan negras de nuevo.
+            */
+            if (carta1.dataset.colorOculto === carta2.dataset.colorOculto) {
+              carta1.dataset.resuelta = "true";
+              carta2.dataset.resuelta = "true";
+
+              carta1 = null;
+              carta2 = null;
+
+              parejasEncontradas++;
+
+              if (parejasEncontradas === 15) {
+                clearInterval(cronometro);
+
+                setTimeout(() => {
+                  alert(
+                    `¡Has terminado! Tu tiempo ha sido de ${segundos} segundos`,
+                  );
+                }, 500);
+              }
+              /*En el siguiente else, activamos el bloqueo del tablero y se activa el temporizador (1,2seg)
+              antes de volver a pintar las cajas de negro y volverlas a su valor null para la siguiente elección.
+              */
+            } else {
+              tableroBloqueado = true;
+
+              setTimeout(() => {
+                carta1.style.backgroundColor = "black";
+                carta2.style.backgroundColor = "black";
+
+                carta1 = null;
+                carta2 = null;
+
+                tableroBloqueado = false;
+              }, 500);
+            }
+          }
+        });
+      });
+
+      juego.value = localStorage.getItem("juego");
+      juego.oninput = () => {
+        localStorage.setItem("juego, juego.value)");
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 29 Javascript - Ejercicio 6</title>
+  </head>
+  <body>
+    <h1>Ejercicios de eventos 6</h1>
+
+    <p><a href="index.html">Volver al inicio</a></p>
+
+    <p>
+      <strong>Crea</strong> una aplicación que contenga un párrafo con mucho
+      texto. Debajo del párrafo debe aparecer un botón por cada vocal. Al pulsar
+      sobre una vocal, esa vocal desaparecerá del texto.
+    </p>
+    <main>
+      <h3>Aquí está el párrafo</h3>
+      <p id="para">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
+        suscipit dolore quibusdam dolorum ab fuga ipsum deserunt accusamus,
+        facere non, enim tempore accusantium ratione libero est harum excepturi
+        impedit quam! <br />
+      </p>
+      <div id="zonaBotones"></div>
+    </main>
+
+    <script>
+      let parrafo = document.getElementById("para"); //Seleccionamos el párrafo
+      let zBotones = document.getElementById("zonaBotones"); //Seleccionamos la zona donde irán los botones
+      let vocales = ["a", "e", "i", "o", "u"]; //Array para identificar todos los botones
+
+      for (let vocal of vocales) {
+        //Por cada vocal en vocales...
+        let btn = document.createElement("button"); //
+        btn.textContent = vocal;
+        zBotones.appendChild(btn);
+
+        btn.addEventListener("click", (event) => {
+          let letraPulsada = event.target.textContent;
+          if (parrafo.textContent.includes(letraPulsada)) {
+            parrafo.textContent = parrafo.textContent.replaceAll(
+              letraPulsada,
+              "",
+            );
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

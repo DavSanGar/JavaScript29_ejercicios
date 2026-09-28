@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 29 Javascript - Ejercicio 5</title>
+  </head>
+  <body>
+    <h1>Ejercicios de eventos 5</h1>
+
+    <p><a href="index.html">Volver al inicio</a></p>
+
+    <p>
+      <strong>Crea</strong> una rutina que no permita que el ratón se coloque
+      encima de una caja azul de 100 x 100 px. Cada vez que el ratón intente
+      colocarse encima, la posición de la caja debe cambiar aleatoriamente por
+      la página.
+    </p>
+    <main>
+      <div
+        id="caja"
+        style="
+          height: 100px;
+          width: 100px;
+          background-color: blue;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          position: absolute;
+        "
+      ></div>
+    </main>
+
+    <script>
+      let caja = document.getElementById("caja");
+      caja.addEventListener("mouseenter", (event) => {
+        let maxX = window.innerWidth - caja.offsetWidth;
+        let maxY = window.innerHeight - caja.offsetHeight;
+
+        let newPositionX = Math.floor(Math.random() * maxX);
+        let newPositionY = Math.floor(Math.random() * maxY);
+
+        caja.style.left = newPositionX + "px";
+        caja.style.top = newPositionY + "px";
+      });
+    </script>
+  </body>
+</html>
